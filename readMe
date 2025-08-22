@@ -1,0 +1,54 @@
+1. Install Required Dependencies
+bashpip install tkinter keyboard pyinstaller
+Note: tkinter usually comes with Python, but keyboard and pyinstaller need to be installed.
+
+
+2. Create the executable using PyInstaller
+Save the script as auto_key_presser.py and run:
+bash# Basic compilation (creates a folder with the executable)
+pyinstaller --onefile --windowed main.py
+
+# Alternative with more options (recommended)
+
+pyinstaller --onefile --windowed --name "AutoKeyPresser" --icon=icon.ico auto_key_presser.py
+PyInstaller options explained:
+
+--onefile: Creates a single executable file instead of a folder
+--windowed: Hides the console window (GUI-only)
+--name: Custom name for the executable
+
+
+
+Then run:
+bashpython setup.py build
+
+Important Notes:
+
+Administrator Rights: The keyboard library may require administrator privileges to function properly on some Windows systems.
+Antivirus: Some antivirus software might flag key-pressing applications. You may need to add an exception.
+Key Names: Use standard key names like:
+
+Letters: 'a', 'b', 'c', etc.
+Numbers: '1', '2', '3', etc.
+Special keys: 'space', 'enter', 'tab', 'esc', 'ctrl', 'alt', 'shift'
+Function keys: 'f1', 'f2', etc.
+Arrow keys: 'up', 'down', 'left', 'right'
+
+
+Configuration: The app saves your key sequences in auto_key_presser_config.json in the same folder as the executable.
+
+The executable will be created in the dist folder after running PyInstaller. You can distribute this single .exe file to run the application on any Windows computer without needing Python installed.
+
+
+3. Alternative: Using cx_Freeze
+If PyInstaller doesn't work, you can use cx_Freeze:
+bashpip install cx_freeze
+Create a setup.py file:
+pythonfrom cx_Freeze import setup, Executable
+
+setup(
+    name="AutoKeyPresser",
+    version="1.0",
+    description="Auto Key Presser Application",
+    executables=[Executable("auto_key_presser.py", base="Win32GUI")]
+)

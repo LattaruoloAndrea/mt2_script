@@ -1,0 +1,14 @@
+{
+  "key_sequences": [
+    {
+      "id": "0",
+      "key": "4",
+      "interval": 5.0
+    },
+    {
+      "id": "1",
+      "key": "space",
+      "interval": 0.1
+    }
+  ]
+}
